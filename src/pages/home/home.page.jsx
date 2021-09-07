@@ -12,22 +12,24 @@ import {
   DatePicker,
   Rate,
 } from 'antd'
+import { formatChar, formatCurrency } from '../../utils'
+import AntSvg from '../../assets/svgs/ant.svg'
 
 const { Option } = Select
 const { Title } = Typography
 
-const App = () => {
+const HomePage = () => {
   return (
-    <>
+    <div>
       <section style={{ textAlign: 'center', marginTop: 48, marginBottom: 40 }}>
         <Space align='start'>
           <img
             style={{ width: 40, height: 40 }}
-            src='https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg'
+            src={AntSvg}
             alt='Ant Design'
           />
           <Title level={2} style={{ marginBottom: 0 }}>
-            Ant Design
+            Ant Design
           </Title>
         </Space>
       </section>
@@ -72,8 +74,14 @@ const App = () => {
           </Space>
         </Form.Item>
       </Form>
-    </>
+
+      <Title>Currenry Format: {formatCurrency(5000)} </Title>
+      <Title>
+        String Format:{' '}
+        {formatChar('This is a very very long string to test out', 20)}
+      </Title>
+    </div>
   )
 }
 
-export default App
+export default HomePage
